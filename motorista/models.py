@@ -9,6 +9,9 @@ class Motorista(models.Model):
     cnh = models.CharField(max_length=12, null=True, blank=True)
     placa = models.CharField(max_length=8, null=True, blank=True)
 
+    def __str__(self):
+        return f"{self.nome} - {self.cpf}"
+
     
     def set_senha(self, senha):
         # Garante que só cria se ainda não tiver user vinculado
