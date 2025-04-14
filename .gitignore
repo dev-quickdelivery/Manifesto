@@ -1,0 +1,56 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Caches
+*.log
+*.pot
+*.pyc
+
+# Django stuff:
+*.sqlite3
+*.db
+*.bak
+*.swp
+db.sqlite3
+instance/
+
+# Media and static
+/media
+/staticfiles
+/static/
+.env
+
+# IDEs and editors
+.vscode/
+.idea/
+*.sublime-workspace
+*.sublime-project
+
+# Virtual environments
+venv/
+env/
+ENV/
+.venv/
+.ENV/
+
+# Migration files (optional — pode deixar se quiser evitar conflito)
+**/migrations/*.py
+!**/migrations/__init__.py
+
+# macOS
+.DS_Store
+
+# Windows
+Thumbs.db
+ehthumbs.db
+
+# Test coverage
+htmlcov/
+.coverage
+coverage.xml
+
+# Pip
+pip-log.txt
+pip-delete-this-directory.txt
