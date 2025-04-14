@@ -8,6 +8,7 @@ from django.http import JsonResponse
 from motorista.models import Motorista
 from django.contrib.auth.decorators import login_required
 
+
 def verificar_cpf(request):
     if request.method == "POST":
         cpf = request.POST.get("cpf")
@@ -24,4 +25,5 @@ def verificar_cpf(request):
 
 @login_required
 def painel_view(request):
-    return render(request, 'dashboard/painel.html')
+    motorista = Motorista.objects.get(user=request.user)
+    return render(request, 'dashboard/painel.html', {'motorista': motorista})
