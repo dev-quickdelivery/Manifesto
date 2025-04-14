@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/5.2/ref/settings/
 """
 
 from pathlib import Path
+import os
 #from decouple import config
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -63,7 +64,8 @@ ROOT_URLCONF = 'manifesto.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [BASE_DIR / 'templates'],  # Diretório global de templates
+        'DIRS': [BASE_DIR / 'Manifesto' / 'templates'],  # Diretório global de templates
+        #'DIRS': [os.path.join(BASE_DIR, 'Manifesto', 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -124,9 +126,18 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.2/howto/static-files/
 
+# Caminho para os arquivos estáticos (CSS, JS, etc)
 STATIC_URL = '/static/'
-STATICFILES_DIRS = [BASE_DIR / 'static']
-STATIC_ROOT = BASE_DIR / 'staticfiles'  # Usado em produção
+
+# Diretório onde o Django vai procurar os arquivos static (para debug)
+STATICFILES_DIRS = [
+    BASE_DIR / 'Manifesto' / "static",  # se estiver usando Path
+]
+
+# Se estiver usando os.path.join
+# STATICFILES_DIRS = [
+#     os.path.join(BASE_DIR, "static")
+# ]
 
 
 
@@ -138,3 +149,6 @@ MEDIA_ROOT = BASE_DIR / 'media'
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+LOGIN_URL = 'login'  # Isso usa o nome da URL configurada no urls.py

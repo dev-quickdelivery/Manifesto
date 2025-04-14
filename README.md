@@ -1,4 +1,4 @@
-# 📦 ManifestoJa
+# 📦 Manifesto
 
 **ManifestoJa** é um sistema web para gerenciamento de transportes, desenvolvido com Django e integrado à API da ESL Cloud para iniciar e encerrar manifestos de forma prática e automatizada.
 

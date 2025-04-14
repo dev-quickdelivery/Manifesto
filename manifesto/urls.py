@@ -16,7 +16,14 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from .views import login_view, primeiro_acesso
+from motorista.views import painel_view, verificar_cpf
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('', login_view, name='login'),
+    path('painel/', painel_view, name='painel'),  # sua view após login
+    path('verificar-cpf/', verificar_cpf, name='verificar_cpf'),
+    path('primeiro-acesso/', primeiro_acesso, name='primeiro_acesso'),
 ]
