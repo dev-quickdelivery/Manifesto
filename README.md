@@ -139,7 +139,5 @@ Este projeto está licenciado sob a **MIT License**. Veja o arquivo [LICENSE](LI
 
 ## 📬 Contato
 
-Desenvolvido por [Seu Nome](https://github.com/seuusuario)
+Desenvolvido por [Seu Nome](https://github.com/lgluiz1)
 
-Email: contato@seudominio.com  
-LinkedIn: [linkedin.com/in/seuusuario](https://linkedin.com/in/seuusuario)
