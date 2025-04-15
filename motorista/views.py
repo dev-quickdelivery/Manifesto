@@ -6,6 +6,7 @@ from django.views.decorators.csrf import csrf_exempt
 
 from django.http import JsonResponse
 from motorista.models import Motorista
+from mdfe.models import Manifesto, Nota, Canhoto
 from django.contrib.auth.decorators import login_required
 
 
@@ -25,5 +26,20 @@ def verificar_cpf(request):
 
 @login_required
 def painel_view(request):
+    manifesto = Manifesto.objects.all()
+    nota = Nota.objects.all()
     motorista = Motorista.objects.get(user=request.user)
-    return render(request, 'dashboard/painel.html', {'motorista': motorista})
+
+    #pega todos os manifestos do motorista logado
+    manifesto = manifesto.filter(motorista=motorista)
+
+    #pega todas as notas vinculado ao manifesto do motorista logado
+    nota = nota.filter(manifesto__motorista=motorista)
+
+    context = {
+        'manifesto': manifesto,
+        'nota': nota,
+        'motorista': motorista
+    }
+
+    return render(request, 'dashboard/painel.html', context)
