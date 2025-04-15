@@ -7,7 +7,21 @@
 <div class="container-fluid">
 
     <!-- Page Heading -->
-    <h1 class="h3 mb-4 text-gray-800">Seja bem vindo {{ motorista.nome }}</h1>
+    <h1 class="h3 mb-4 text-gray-800">Seja bem-vindo {{ motorista.nome }}</h1>
+
+    {% for m in manifesto %}
+    <h2>Manifesto ID: {{ m.id }}</h2>
+    <li>Quantidade de notas: {{ m.notas.count }}</li>
+    <li>Valor total notas: {{ m.valor }}</li>
+    <li>Peso total: {{ m.peso }}</li>
+    <ul>
+      {% for n in m.notas.all %}
+        <li>Nota número: {{ n.numero }}</li>
+      {% empty %}
+        <li>Sem notas vinculadas.</li>
+      {% endfor %}
+    </ul>
+{% endfor %}
     <h1 class="h3 mb-4 text-gray-800">Placa CNH {{ motorista.cnh }}</h1>
 
     <h1 class="h3 mb-4 text-gray-800">Placa Carro {{ motorista.placa }}</h1>
