@@ -44,3 +44,8 @@ def primeiro_acesso(request):
         else:
             return JsonResponse({"status": "erro", "mensagem": "Motorista não encontrado ou já possui conta"})
     return JsonResponse({"status": "erro", "mensagem": "Método inválido"})
+
+# rota de logout
+def logout_view(request):
+    auth_logout(request)
+    return redirect('login')
