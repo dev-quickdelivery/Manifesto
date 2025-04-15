@@ -14,6 +14,14 @@ class Manifesto(models.Model):
     finalizado_em = models.DateTimeField(blank=True, null=True)
     observacoes = models.TextField(blank=True, null=True)
 
+    @property
+    def valor(self):
+        return sum(n.valor for n in self.notas.all())
+
+    @property
+    def peso(self):
+        return sum(n.peso for n in self.notas.all())
+
     def __str__(self):
         return f"Manifesto #{self.id} - {self.status}"
 
