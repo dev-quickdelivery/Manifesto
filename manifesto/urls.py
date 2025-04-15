@@ -16,7 +16,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from .views import login_view, primeiro_acesso
+from .views import login_view, primeiro_acesso, logout_view
 from motorista.views import painel_view, verificar_cpf
 
 
