@@ -26,4 +26,5 @@ urlpatterns = [
     path('painel/', painel_view, name='painel'),  # sua view após login
     path('verificar-cpf/', verificar_cpf, name='verificar_cpf'),
     path('primeiro-acesso/', primeiro_acesso, name='primeiro_acesso'),
+    path('logout/', logout_view, name='logout'),
 ]
