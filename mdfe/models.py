@@ -11,6 +11,7 @@ class Manifesto(models.Model):
     status = models.CharField(max_length=20, choices=STATUS_CHOICES, default='pendente')
     criado_em = models.DateTimeField(auto_now_add=True)
     atualizado_em = models.DateTimeField(auto_now=True)
+    finalizado_em = models.DateTimeField(blank=True, null=True)
     observacoes = models.TextField(blank=True, null=True)
 
     def __str__(self):
