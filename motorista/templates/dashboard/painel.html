@@ -9,19 +9,44 @@
     <!-- Page Heading -->
     <h1 class="h3 mb-4 text-gray-800">Seja bem-vindo {{ motorista.nome }}</h1>
 
-    {% for m in manifesto %}
-    <h2>Manifesto ID: {{ m.id }}</h2>
-    <li>Quantidade de notas: {{ m.notas.count }}</li>
-    <li>Valor total notas: {{ m.valor }}</li>
-    <li>Peso total: {{ m.peso }}</li>
-    <ul>
-      {% for n in m.notas.all %}
-        <li>Nota número: {{ n.numero }}</li>
-      {% empty %}
-        <li>Sem notas vinculadas.</li>
-      {% endfor %}
-    </ul>
-{% endfor %}
+    <h1 class="h3 mb-4 text-gray-800">Manifestos</h1>
+    <div id="accordion">
+        {% for m in manifesto %}
+        <div class="card">
+            <div class="card-header" id="heading-{{ m.id }}">
+                <h5 class="mb-0">
+                    <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapse-{{ m.id }}"
+                        aria-expanded="false" aria-controls="collapse-{{ m.id }}">
+                        Manifesto ID: {{ m.id }}
+                    </button>
+                </h5>
+            </div>
+
+            <div id="collapse-{{ m.id }}" class="collapse" aria-labelledby="heading-{{ m.id }}" data-parent="#accordion">
+                <div class="card-body">
+                    <ul class="list-group">
+                        <li class="list-group-item ml-4 mr-4">Quantidade de notas: {{ m.notas.count }}</li>
+                        <li class="list-group-item ml-4 mr-4">Valor total notas: {{ m.valor }}</li>
+                        <li class="list-group-item ml-4 mr-4">Peso total: {{ m.peso }}</li>
+
+                        {% with notas=m.notas.all %}
+                            {% if notas %}
+                                {% for n in notas %}
+                                    <li class="list-group-item ml-4 mr-4">Nota número: {{ n.numero }}</li>
+                                {% endfor %}
+                            {% else %}
+                                <li class="list-group-item ml-4 mr-4">Sem notas vinculadas.</li>
+                            {% endif %}
+                        {% endwith %}
+                    </ul>
+                </div>
+            </div>
+        </div>
+        {% empty %}
+        <p>Sem manifestos encontrados.</p>
+        {% endfor %}
+    </div>
+
     <h1 class="h3 mb-4 text-gray-800">Placa CNH {{ motorista.cnh }}</h1>
 
     <h1 class="h3 mb-4 text-gray-800">Placa Carro {{ motorista.placa }}</h1>
