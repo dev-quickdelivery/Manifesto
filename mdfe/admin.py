@@ -3,6 +3,9 @@ from .models import  Manifesto, Nota, Canhoto
 from django.urls import path
 from django.utils.html import format_html
 from .views import iniciar_transporte, finalizar_transporte
+from django.urls import reverse
+
+"""
 
 class ManifestoAdmin(admin.ModelAdmin):
     list_display = ['id', 'status', 'criado_em', 'acoes']
