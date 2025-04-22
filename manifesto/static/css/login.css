@@ -84,7 +84,7 @@ height: 100%;
     padding-block: 15px;
     margin: 20px auto;
     border-radius: 20px;
-    box-shadow: rgba(133, 189, 215, 0.8784313725) 0px 20px 10px -15px;
+    box-shadow: rgba(215, 133, 133, 0.878) 0px 20px 10px -15px;
     border: none;
     transition: all 0.2s ease-in-out;
   }
