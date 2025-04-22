@@ -3,12 +3,12 @@ from motorista.models import Motorista
 
 class Manifesto(models.Model):
     STATUS_CHOICES = [
-        ('pendente', 'Pendente'),
-        ('em_transporte', 'Em Transporte'),
-        ('finalizado', 'Finalizado'),
+        ('Aguardando_Motorista', 'Aguardando'),
+        ('Em_transporte', 'Em Transporte'),
+        ('Finalizado', 'Finalizado'),
     ]
     motorista = models.ForeignKey(Motorista, on_delete=models.CASCADE)
-    status = models.CharField(max_length=20, choices=STATUS_CHOICES, default='pendente')
+    status = models.CharField(max_length=20, choices=STATUS_CHOICES, default='Aguardando_Motorista')
     criado_em = models.DateTimeField(auto_now_add=True)
     atualizado_em = models.DateTimeField(auto_now=True)
     finalizado_em = models.DateTimeField(blank=True, null=True)
