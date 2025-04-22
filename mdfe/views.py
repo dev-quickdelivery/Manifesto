@@ -1,5 +1,8 @@
 from django.shortcuts import render, get_object_or_404, redirect
-from .models import Manifesto
+from django.contrib.auth.decorators import login_required
+from .models import Manifesto 
+from motorista.models import Motorista
+from django.contrib import messages
 from .utils import iniciar_transporte_api, finalizar_transporte_api
 
 def iniciar_transporte(request, manifesto_id):
