@@ -127,7 +127,7 @@ height: 100%;
     aspect-ratio: 1;
     display: grid;
     place-content: center;
-    box-shadow: rgba(133, 189, 215, 0.8784313725) 0px 12px 10px -8px;
+    box-shadow: rgba(215, 133, 133, 0.878) 0px 12px 10px -8px;
     transition: all 0.2s ease-in-out;
   }
   
