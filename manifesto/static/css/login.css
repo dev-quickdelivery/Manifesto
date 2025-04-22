@@ -96,7 +96,7 @@ height: 100%;
   
   .form .login-button:active {
     transform: scale(0.95);
-    box-shadow: rgba(133, 189, 215, 0.8784313725) 0px 15px 10px -10px;
+    box-shadow: rgba(215, 133, 133, 0.878) 0px 15px 10px -10px;
   }
   
   .social-account-container {
