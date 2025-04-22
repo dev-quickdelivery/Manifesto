@@ -45,3 +45,4 @@ def finalizar_transporte_api(manifesto_id):
     headers = {'Content-Type': 'application/json'}
     response = requests.post(url, json=payload, headers=headers)
     print("Fechamento:", response.text)
+
