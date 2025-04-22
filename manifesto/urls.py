@@ -15,7 +15,7 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
 from .views import login_view, primeiro_acesso, logout_view
 from motorista.views import painel_view, verificar_cpf
 
@@ -23,6 +23,7 @@ from motorista.views import painel_view, verificar_cpf
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', login_view, name='login'),
+    path('', include('mdfe.urls')),  # <--- isso é o importante!
     path('painel/', painel_view, name='painel'),  # sua view após login
     path('verificar-cpf/', verificar_cpf, name='verificar_cpf'),
     path('primeiro-acesso/', primeiro_acesso, name='primeiro_acesso'),
