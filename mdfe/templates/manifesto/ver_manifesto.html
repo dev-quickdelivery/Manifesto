@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% block content %}
+
+{% include 'include/row_motorista_manifesto.html' %}
+<div class="container-fluid">
+<div class="accordion" id="accordionExample">
+        <div class="card border-left-warning shadow w-100">
+          <div class="card-header" id="headingOne">
+            <h5 class="mb-0">
+              <button class="card-body btn  " type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                Manifesto
+              </button>
+            </h5>
+          </div>
+      
+          <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
+            <div class="card-body">
+                <iframe src="https://www.dropbox.com/scl/fi/1xl6obb6vdjf6461tzmge/2000011376823618_250422154514.pdf?rlkey=yikxjfyyxf7b46coclhx4m40w&st=3161huag&dl=0" width="100%" height="600px" frameborder="0"></iframe>
+
+            </div>
+          </div>
+        </div>
+    </div>
+        
+
+    <h4>Notas Fiscais</h4>
+    {% if notas %}
+        <ul class="list-group">
+            {% for nota in notas %}
+                <li class="list-group-item">
+                    Nº: {{ nota.numero }} | Valor: R$ {{ nota.valor }} | Peso: {{ nota.peso }}
+                </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>Não há notas fiscais vinculadas a este manifesto.</p>
+    {% endif %}
+</div>
+</div>
+{% endblock %}
+
