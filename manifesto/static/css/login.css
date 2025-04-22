@@ -24,6 +24,8 @@ height: 100%;
     border: 5px solid rgb(255, 255, 255);
     box-shadow: rgba(133, 189, 215, 0.8784313725) 0px 30px 30px -20px;
     margin: 20px;
+    -webkit-box-shadow: -1px 1px 26px 12px rgba(0,0,0,0.33); 
+    box-shadow: -1px 1px 26px 12px rgba(0,0,0,0.33);
   }
   
   .heading {
