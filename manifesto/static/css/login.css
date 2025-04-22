@@ -60,7 +60,7 @@ height: 100%;
   
   .form .input:focus {
     outline: none;
-    border-inline: 2px solid #12B1D1;
+    border-inline: 2px solid #d11212;
   }
   
   .form .forgot-password {
