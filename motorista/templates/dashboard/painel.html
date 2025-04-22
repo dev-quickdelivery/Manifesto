@@ -72,13 +72,17 @@
         </div>
     </div>
     <div id="accordion">
+        {% endfor %}
         {% for m in manifesto %}
+
+        
+        
         <div class="card">
             <div class="card-header" id="heading-{{ m.id }}">
                 <h5 class="mb-0">
                     <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapse-{{ m.id }}"
                         aria-expanded="false" aria-controls="collapse-{{ m.id }}">
-                        Manifesto ID: {{ m.id }}
+                        Manifesto do dia {{ m.criado_em}} 
                     </button>
                 </h5>
             </div>
@@ -86,6 +90,16 @@
             <div id="collapse-{{ m.id }}" class="collapse" aria-labelledby="heading-{{ m.id }}" data-parent="#accordion">
                 <div class="card-body">
                     <ul class="list-group">
+                        
+                        <li class="list-group-item ml-4 mr-4">Status do manifesto : {{ m.status }}</li>
+                        <li class="list-group-item ml-4 mr-4">Atualizado em : {{ m.atualizado_em }}</li>
+                        <li class="list-group-item ml-4 mr-4">Finalizado em : {{ m.finalizado_em }}</li>
+                        <a href="{% url 'iniciar_manifesto' m.id %}" class="btn btn-success">
+                            Iniciar Manifesto
+                          </a>
+                    </ul>
+                    <ul class="list-group">
+                        
                         <li class="list-group-item ml-4 mr-4">Quantidade de notas: {{ m.notas.count }}</li>
                         <li class="list-group-item ml-4 mr-4">Valor total notas: {{ m.valor }}</li>
                         <li class="list-group-item ml-4 mr-4">Peso total: {{ m.peso }}</li>
