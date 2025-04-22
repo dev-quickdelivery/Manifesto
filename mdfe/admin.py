@@ -24,6 +24,8 @@ class ManifestoAdmin(admin.ModelAdmin):
     acoes.short_description = 'Ações'
     acoes.allow_tags = True
 
+   """
+
 
 # mdfe/admin.py
 from django.contrib import admin
