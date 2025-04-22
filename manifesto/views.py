@@ -49,3 +49,5 @@ def primeiro_acesso(request):
 def logout_view(request):
     auth_logout(request)
     return redirect('login')
+
+
