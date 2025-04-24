@@ -3,39 +3,120 @@
 
 {% include 'include/row_motorista_manifesto.html' %}
 <div class="container-fluid">
-<div class="accordion" id="accordionExample">
-        <div class="card border-left-warning shadow w-100">
-          <div class="card-header" id="headingOne">
-            <h5 class="mb-0">
-              <button class="card-body btn  " type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                Manifesto
+  {% if notas %}
+    {% for nota in notas %}
+      <div class="accordion mb-4" id="accordionExample{{ loop.index }}">
+        <div class="card border-left-success shadow w-100">
+          <div class="card-header bg-light" id="heading{{ loop.index }}">
+            <h5 class="mb-0 font-weight-bold text-gray-800 d-flex align-items-center justify-content-between">
+              <div class="col mr-2">
+                <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Numero da Nota</div>
+                <div class="h5 mb-0 font-weight-bold text-gray-800"># {{ nota.numero }}</div>
+              </div>
+              <div class="col mr-2">
+                <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Endereço entrega</div>
+                <div class="h5 mb-0 font-weight-bold text-gray-800"># {{ nota.numero }}</div>
+              </div>
+              <div class="col mr-2">
+                <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Valor da Nota</div>
+                <div class="h5 mb-0 font-weight-bold text-gray-800">R$ {{ nota.valor }}</div>
+              </div>
+              <div class="col mr-2">
+                <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Peso da Nota</div>
+                <div class="h5 mb-0 font-weight-bold text-gray-800">{{ nota.peso }}kg</div>
+              </div>
+              <button class="btn btn-success w-10" type="button" data-toggle="collapse" data-target="#collapse{{ loop.index }}" aria-expanded="true" aria-controls="collapse{{ loop.index }}">
+                Ver Informações
               </button>
             </h5>
           </div>
-      
-          <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
-            <div class="card-body">
-                <iframe src="https://www.dropbox.com/scl/fi/1xl6obb6vdjf6461tzmge/2000011376823618_250422154514.pdf?rlkey=yikxjfyyxf7b46coclhx4m40w&st=3161huag&dl=0" width="100%" height="600px" frameborder="0"></iframe>
 
+          <div id="collapse{{ loop.index }}" class="collapse" aria-labelledby="heading{{ loop.index }}" data-parent="#accordionExample{{ loop.index }}">
+            <div class="card-body">
+              <form>
+                <div class="form-row">
+                  <div class="form-group col-md-6">
+                    <label for="inputNome{{ loop.index }}">NOME/RAZÃO SOCIAL</label>
+                    <input type="text" class="form-control" id="inputNome{{ loop.index }}" placeholder="NOME/RAZÃO SOCIAL" readonly>
+                  </div>
+                  <div class="form-group col-md-6">
+                    <label for="inputCnpj{{ loop.index }}">C.N.P.J / C.P.F.</label>
+                    <input type="number" class="form-control" id="inputCnpj{{ loop.index }}" placeholder="C.N.P.J / C.P.F." readonly>
+                  </div>
+                </div>
+
+                <div class="form-row">
+                  <div class="form-group col-md-6">
+                    <label for="inputData{{ loop.index }}">DATA DA EMISSÃO</label>
+                    <input type="date" class="form-control" id="inputData{{ loop.index }}" readonly>
+                  </div>
+                  <div class="form-group col-md-6">
+                    <label for="inputCnpj2{{ loop.index }}">TELEFONE</label>
+                    <input type="number" class="form-control" id="inputCnpj2{{ loop.index }}" readonly>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label for="inputEndereco2{{ loop.index }}">Endereço 2</label>
+                  <input type="text" class="form-control" id="inputEndereco2{{ loop.index }}" placeholder="Apartamento, hotel, casa, etc." readonly>
+                </div>
+
+                <div class="form-row">
+                  <div class="form-group col-md-6">
+                    <label for="inputCity{{ loop.index }}">Cidade</label >
+                    <input type="text" class="form-control" id="inputCity{{ loop.index }}" readonly>
+                  </div>
+                  <div class="form-group col-md-4">
+                    <label for="inputEstado{{ loop.index }}">Estado</label>
+                    <select id="inputEstado{{ loop.index }}" class="form-control" readonly>
+                      <option selected>Escolher...</option>
+                      <option>...</option>
+                    </select>
+                  </div>
+                  <div class="form-group col-md-2">
+                    <label for="inputCEP{{ loop.index }}">CEP</label>
+                    <input type="text" class="form-control" id="inputCEP{{ loop.index }}" readonly>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <h5 class="mb-0 font-weight-bold text-uppercase mb-1">DADOS DO PRODUTO / SERVIÇOS</h5>
+                  <div class="form-row d-flex flex-wrap">
+                    <div class="form-group col-md-2">
+                      <label for="codProduto{{ loop.index }}">CÓDIGO DO PRODUTO</label>
+                      <input type="text" class="form-control" id="codProduto{{ loop.index }}" readonly>
+                    </div>
+                    <div class="form-group col-md-4">
+                      <label for="descProduto{{ loop.index }}">DESCRIÇÃO DOS PRODUTOS / SERVIÇOS</label>
+                      <input type="text" class="form-control" id="descProduto{{ loop.index }}" readonly>
+                    </div>
+                    <div class="form-group col-md-2">
+                      <label for="unid{{ loop.index }}">UNID</label>
+                      <input type="number" class="form-control" id="unid{{ loop.index }}" placeholder="1" readonly>
+                    </div>
+                    <div class="form-group col-md-2">
+                      <label for="quant{{ loop.index }}">QUANT</label>
+                      <input type="number" class="form-control" id="quant{{ loop.index }}" placeholder="1" readonly>
+                    </div>
+                    <div class="form-group col-md-2">
+                      <label for="valorTotal{{ loop.index }}">VALOR TOTAL</label>
+                      <input type="number" class="form-control" id="valorTotal{{ loop.index }}" placeholder="00" readonly>
+                    </div>
+                  </div>
+                </div>
+                <div class="form-group">
+                <button type="submit" class="btn btn-warning">OCORRENCIA</button>
+                <button type="submit" class="btn btn-primary">ENVIAR COMPROVANTE</button>
+                </div>
+              </form>
             </div>
           </div>
         </div>
-    </div>
-        
+      </div>
+    {% endfor %}
+  {% else %}
+    <p>Não há notas fiscais vinculadas a este manifesto.</p>
+  {% endif %}
+</div>
 
-    <h4>Notas Fiscais</h4>
-    {% if notas %}
-        <ul class="list-group">
-            {% for nota in notas %}
-                <li class="list-group-item">
-                    Nº: {{ nota.numero }} | Valor: R$ {{ nota.valor }} | Peso: {{ nota.peso }}
-                </li>
-            {% endfor %}
-        </ul>
-    {% else %}
-        <p>Não há notas fiscais vinculadas a este manifesto.</p>
-    {% endif %}
-</div>
-</div>
 {% endblock %}
-
