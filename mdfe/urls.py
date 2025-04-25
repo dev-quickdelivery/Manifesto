@@ -6,4 +6,5 @@ urlpatterns = [
     path('mdfe/manifesto/<int:manifesto_id>/ver', views.ver_manifesto, name='ver_manifesto'),
 
 
+
 ]
