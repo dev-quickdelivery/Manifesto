@@ -3,8 +3,8 @@
 
 {% include 'include/row_motorista_manifesto.html' %}
 <div class="container-fluid">
-  {% if notas %}
-    {% for nota in notas %}
+  {% if manifesto.dados %}
+  {% for nota in manifesto.dados %}
       <div class="accordion mb-4" id="accordionExample{{ loop.index }}">
         <div class="card border-left-success shadow w-100">
           <div class="card-header bg-light" id="heading{{ loop.index }}">
@@ -15,11 +15,12 @@
               </div>
               <div class="col mr-2">
                 <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Endereço entrega</div>
-                <div class="h5 mb-0 font-weight-bold text-gray-800"># {{ nota.numero }}</div>
+                <div class="h5 mb-0 font-weight-bold text-gray-800"> {{ nota.endereco_entrega }}</div>
               </div>
               <div class="col mr-2">
                 <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Valor da Nota</div>
-                <div class="h5 mb-0 font-weight-bold text-gray-800">R$ {{ nota.valor }}</div>
+                <div class="h5 mb-0 font-weight-bold text-gray-800">
+                  R$ {{ nota.total_nota|floatformat:2 }}</div>
               </div>
               <div class="col mr-2">
                 <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Peso da Nota</div>
