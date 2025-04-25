@@ -6,6 +6,7 @@ class Motorista(models.Model):
     user = models.OneToOneField(User, on_delete=models.SET_NULL, null=True, blank=True)
     cpf = models.CharField(max_length=11, unique=True, null=True, blank=True)
     nome = models.CharField(max_length=100)
+    mobile_person_id=models.CharField(max_length=100, null=True, blank=True)
     cnh = models.CharField(max_length=12, null=True, blank=True)
     placa = models.CharField(max_length=8, null=True, blank=True)
 
