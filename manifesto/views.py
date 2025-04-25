@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login
+from motorista.utils import registrar_motoristas
 from .forms import LoginForm, PrimeiroAcessoForm
 from motorista.models import Motorista
 from django.contrib.auth.models import User
@@ -7,6 +8,7 @@ from django.contrib.auth import authenticate, login as auth_login, logout as aut
 from django.http import JsonResponse
 
 def login_view(request):
+    registrar_motoristas() # Registra motoristas na base de dados
     if request.user.is_authenticated:
         return redirect('painel')  # Usuário já logado, redireciona para o painel
 
