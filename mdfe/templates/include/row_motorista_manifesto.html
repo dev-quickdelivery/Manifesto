@@ -12,7 +12,7 @@
                                 Numero do Manifesto
                             </div>
                             <div class="h5 mb-0 font-weight-bold text-gray-800">
-                                # {{ manifesto.id }}
+                                # {{ manifesto.numero_rota }}
                             </div>
                         </div>
                         <div class="col-auto">
@@ -54,13 +54,7 @@
                                 Valores notas
                             </div>
                             <div class="h5 mb-0 font-weight-bold text-gray-800">
-                                {% if notas %}
-                                    {% for nota in notas %}
-                                        R$ {{ nota.valor }}
-                                    {% endfor %}
-                                {% else %}
-                                    Sem notas
-                                {% endif %}
+                               R$ {{ total_valor|floatformat:2 }}
                             </div>
                         </div>
                         <div class="col-auto">
